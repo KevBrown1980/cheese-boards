@@ -24,7 +24,7 @@ afterAll(async () => {
     await sequelize.drop();
 });
 
-/////test below 
+/////tests below 
 
 describe('Cheese and Boards testing', () => {
 
@@ -40,47 +40,49 @@ describe('Cheese and Boards testing', () => {
         expect(board1.description).toBe('square and thin');
     });
 
-     // test to see if we can create a user form the seedData
-     test('can create a Board', async () => {
+    // test to see if we can create a user form the seedData
+    test('can create a Board', async () => {
         const user1 = await User.create(seedUser[2]);
         expect(user1.name).toBe('Jock');
     });
 
+    // test to see if we can find cheese 2 that we just created by id
+    test('can find cheese', async () => {
+        const cheese2 = await Cheese.create(seedCheese[1]);
+        const cheese3 = await Restaurant.findByPk(1);
+        expect(cheese3 === cheese2);
+    });
+
+    // test to see if we can find board2 that we just created by id
+    test('can find board', async () => {
+        const board2 = await Board.create(seedBoard[0]);
+        const board3 = await Board.findByPk(1);
+        expect(board3 === board2);
+    });
+
+    // test to see if we can find board2 that we just created by id
+    test('can find user', async () => {
+        const user2 = await User.create(seedUser[3]);
+        const user3 = await User.findByPk(1);
+        expect(user3 === user2);
+    });
+
+
+    // test to see if we can delete a user
+    test('can delete user', async () => {
+        const user4 = await Restaurant.create(seedUser[0]);
+        let deletedUser4 = user4.destroy();
+        expect(deletedUser4 === null);
+    });
+
+
 
     //******************************* */
-       // need to update some basic tests below to see if you can find and delete
+    // test need to complete - not sure how to do this......
     //****************************** */
-
-    // test('can find Restaurants', async () => {
-    //     const restaurant33 = await Restaurant.create(seedRestaurant[0]);
-    //     const restaurant22 = await Restaurant.findByPk(1);
-    //     //const restaurant23 = await Restaurant.findAll()
-    //     expect(restaurant22 === restaurant33);
-    // });
-
-    // test('can find Menu', async () => {
-    //     const menu33 = await Menu.create(seedMenu[0]);
-    //     const menu22 = await Menu.findByPk(1);
-    //     //const restaurant23 = await Restaurant.findAll()
-    //     expect(menu22 === menu33);
-    // });
-
-    // test('can delete Restaurants', async () => {
-    //     const restaurant3 = await Restaurant.create({ name: 'McDonalds', location: 'Edinburgh', cuisine: 'Burgers and fries' });
-    //     let deletedRestaurant3 = restaurant3.destroy();
-    //     expect(deletedRestaurant3 === null);
-    // });
-
-
-
-
-
- //******************************* */
-       // test need to complete - not sure how to do this......
-    //****************************** */
-//  A board can be loaded with its cheeses
-// A user can be loaded with its boards
-// A cheese can be loaded with its board data
+    //  A board can be loaded with its cheeses
+    // A user can be loaded with its boards
+    // A cheese can be loaded with its board data
 
 
 })
