@@ -1,7 +1,7 @@
 
 /// need to fix lines below
-const sequelize = require("../src/db/connection");
-const { User, Post } = require("../src/models");
+const sequelize = require("./db");
+const { Cheese, Board, User } = require("./models");
 let currentId;
 
 beforeAll(async () => {
