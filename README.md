@@ -65,3 +65,10 @@ Write another test(s) that verify one or more of these:
 
 ### Commit & Push
 - `git add .`, `git commit -m “somemessage”`, and `git push` so we can see your work!
+
+
+Actions
+
+npm install --save sqlite3
+install npm 
+npm run test

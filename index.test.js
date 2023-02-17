@@ -1,32 +1,30 @@
 
 /// need to fix lines below
 const sequelize = require("./db");
-const { Cheese, Board, User } = require("./models");
-let currentId;
+const { Cheese, Board, User } = require("./models/index");
+//let currentId;
 
-beforeAll(async () => {
-    // This code will happen at the start of this files testing
-    await sequelize.sync({ force: true });
-});
 
-beforeEach(async () => {
-    // This code will happen before each test/it block
-});
-
-afterEach(async () => {
-    // This code will happen after each test/it block
-    await User.destroy({ where: { id: { [Op.gte]: 0 } } });
-    await Post.destroy({ where: { id: { [Op.gte]: 0 } } });
-});
-
-afterAll(async () => {
-    // This code will happen after all tests in this file are finished
-    await sequelize.drop();
-});
-
-/////tests below 
 
 describe('Cheese and Boards testing', () => {
+
+   
+    beforeAll(async () => {
+        // the 'sync' method will create tables based on the model class
+        // by setting 'force:true' the tables are recreated each time the 
+        // test suite is run
+        await sequelize.sync({ force: true });
+    });
+    
+    
+    /////tests below 
+
+
+
+
+
+
+
 
     // test to see if we can create a cheese form the seeData
     test('can create some Cheese', async () => {

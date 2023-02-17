@@ -3,7 +3,7 @@
 const { sequelize } = require('../db');
 const { Sequelize } = require('sequelize');
 
-// TODO - create a Restaurant model
+
 let Board = sequelize.define("board", {
     // Column names
     type: Sequelize.STRING,

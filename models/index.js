@@ -7,7 +7,7 @@ const { Cheese } = require('./Cheese')
 // a board can only belong to one user
 Board.belongsTo(User);
 // a user can have many boards
-User.hasMany(Board);s
+User.hasMany(Board);
 
 
 // board to cheese relationships
